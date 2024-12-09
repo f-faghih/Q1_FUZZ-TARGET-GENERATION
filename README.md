@@ -58,7 +58,7 @@ The time taken by libFuzzer to find the bug was measured using the following com
 - The bug was found in 0.83 seconds.
 
 ### **gpt-o-mini**
-The bug was found in 0.29 seconds using the optimized fuzz target (./gpt-4o-mini/fuzz_target).
+The bug was found in 0.29 seconds using the optimized fuzz target (./gpt-4o-mini/fuzz_target.c).
 
 Note: Repeating the fuzzing process may result in different runtimes due to the non-deterministic nature of fuzzing, where each run can explore different paths in the code, leading to variations in the execution time.
 
