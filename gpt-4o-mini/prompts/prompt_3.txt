@@ -1,0 +1,13 @@
+I got this error again. Please revise the fuzz target accordingly: rget KTest.c fuzz_target.c
+fuzz_target.c:8:26: error: unknown type name 'uint8_t'
+    8 | KTest* parse_kTest(const uint8_t *Data, size_t Size) {
+      |                          ^
+fuzz_target.c:15:22: error: use of undeclared identifier 'KTEST_VERSION'
+   15 |     kTest->version = KTEST_VERSION;  // Use current version
+      |                      ^
+fuzz_target.c:31:11: error: unknown type name 'uint8_t'
+   31 |     const uint8_t *ptr = Data + 1; // Start after the first byte
+      |           ^
+fuzz_target.c:56:8: error: expected identifier or '('
+   56 | extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+      |        ^

@@ -1,0 +1,1 @@
+The fuzz target is still not efficient. It is better that numBytes be directly taken from the input data to give each object a potentially more diverse size. It is better to make use of the actual input data rather than constraining it with modulo operations.

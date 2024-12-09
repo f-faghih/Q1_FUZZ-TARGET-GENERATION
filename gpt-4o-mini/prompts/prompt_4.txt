@@ -1,0 +1,27 @@
+I got the following error when using the fuzz target you have written. Can you revise the fuzz target accordingly? ==3197==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x50400003c479 at pc 0x55a9522f7671 bp 0x7fffa323ee30 sp 0x7fffa323ee28
+READ of size 1 at 0x50400003c479 thread T0
+    #0 0x55a9522f7670 in parse_kTest /mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target.c:38:43
+    #1 0x55a9522f7eb4 in LLVMFuzzerTestOneInput /mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target.c:62:20
+    #2 0x55a952201cb4 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4dcb4) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #3 0x55a9522013a9 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4d3a9) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #4 0x55a952202b95 in fuzzer::Fuzzer::MutateAndTestOne() (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4eb95) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #5 0x55a9522036f5 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4f6f5) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #6 0x55a9521f09cf in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x3c9cf) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #7 0x55a95221b056 in main (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x67056) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #8 0x7fa254f071c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: 6d64b17fbac799e68da7ebd9985ddf9b5cb375e6)
+    #9 0x7fa254f0728a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: 6d64b17fbac799e68da7ebd9985ddf9b5cb375e6)
+    #10 0x55a9521e59b4 in _start (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x319b4) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+
+0x50400003c479 is located 0 bytes after 41-byte region [0x50400003c450,0x50400003c479)
+allocated by thread T0 here:
+    #0 0x55a9522b5de3 in malloc (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x101de3) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #1 0x7fa2552d4903 in operator new(unsigned long) (/lib/x86_64-linux-gnu/libstdc++.so.6+0xbb903) (BuildId: ca77dae775ec87540acd7218fa990c40d1c94ab1)
+    #2 0x55a952201bc5 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4dbc5) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #3 0x55a9522013a9 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4d3a9) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #4 0x55a952202b95 in fuzzer::Fuzzer::MutateAndTestOne() (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4eb95) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #5 0x55a9522036f5 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x4f6f5) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #6 0x55a9521f09cf in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x3c9cf) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #7 0x55a95221b056 in main (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x67056) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)
+    #8 0x7fa254f071c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: 6d64b17fbac799e68da7ebd9985ddf9b5cb375e6)
+    #9 0x7fa254f0728a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: 6d64b17fbac799e68da7ebd9985ddf9b5cb375e6)
+    #10 0x55a9521e59b4 in _start (/mnt/c/Fathiyeh/UT/resume/2024/Imperial_College/programming_task/Question1/gpt-4o-mini/fuzz_target+0x319b4) (BuildId: edbecddf1d1960722434bbef7b5c130a55888648)

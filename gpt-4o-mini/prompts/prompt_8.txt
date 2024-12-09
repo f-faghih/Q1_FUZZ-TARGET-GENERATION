@@ -1,0 +1,1 @@
+You fuzz target does not work well, because you are introducing randomness, which makes the fuzzing inefficient. You should deterministically utilize the fuzzing input to generate KTest. Please revise your code accordingly.
